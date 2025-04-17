@@ -3,6 +3,6 @@
 
 export function Greet(arg1:string):Promise<string>;
 
-export function ListDir(arg1:string):Promise<Array<string>>;
+export function ListDir(arg1:string,arg2:boolean):Promise<Array<string>>;
 
 export function PickDir():Promise<string>;

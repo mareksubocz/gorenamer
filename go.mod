@@ -2,7 +2,10 @@ module gorenamer
 
 go 1.23
 
-require github.com/wailsapp/wails/v2 v2.9.3
+require (
+	github.com/tobychui/goHidden v0.0.0-20210912041315-888f0999f674
+	github.com/wailsapp/wails/v2 v2.9.3
+)
 
 require (
 	github.com/bep/debounce v1.2.1 // indirect

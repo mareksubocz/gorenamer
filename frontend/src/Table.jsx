@@ -4,7 +4,7 @@ import { ScrollSyncPane } from "react-scroll-sync";
 const Table = ({ data }) => {
   return (
     <ScrollSyncPane>
-      <div className="overflow-x-auto overflow-y-auto h-full">
+      <div className="overflow-x-auto overflow-y-auto h-full overscroll-none">
         <table className="min-w-full divide-y divide-gray-200">
           <tbody className="bg-white divide-y divide-gray-200">
             {data.map((item, index) => (

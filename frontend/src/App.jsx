@@ -5,7 +5,7 @@ import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 
 function App() {
   const [currDir, setCurrDir] = useState("");
-  const [showHidden, setShowHidden] = useState(true);
+  const [showHidden, setShowHidden] = useState(false);
   const [fileList, setFileList] = useState([]); // State for the file list
 
   // Fetch the file list when the component mounts
@@ -49,18 +49,31 @@ function App() {
             >
               {currDir || "Pick a directory"}
             </button>
-            <label className="flex items-center space-x-2 text-white cursor-pointer">
-              <input
-                type="checkbox"
-                checked={showHidden}
-                disabled={!currDir}
-                onChange={() => {
-                  setShowHidden(!showHidden);
-                }}
-                className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
-              />
-              <span className="text-sm font-medium">Include hidden files</span>
-            </label>
+            {currDir && (
+              <div className="flex flex-col items-center space-y-4 w-full">
+                <form class="group relative w-full">
+                  <input
+                    class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm text-slate-900 placeholder-slate-400 rounded-md py-2 pl-2 ring-1 ring-slate-200 shadow-sm"
+                    type="text"
+                    aria-label="Filter projects"
+                    placeholder="Renaming pattern..."
+                  />
+                </form>
+                <label className="flex items-center space-x-2 text-white cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={showHidden}
+                    onChange={() => {
+                      setShowHidden(!showHidden);
+                    }}
+                    className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                  />
+                  <span className="text-sm font-medium">
+                    Include hidden files
+                  </span>
+                </label>
+              </div>
+            )}
           </div>
           <button
             disabled={!Boolean(currDir)}

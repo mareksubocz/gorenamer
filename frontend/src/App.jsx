@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ListDir, PickDir } from "../wailsjs/go/main/App";
 import Table from "./Table";
+import Tooltip from "./Tooltip";
 import { ScrollSync, ScrollSyncPane } from "react-scroll-sync";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <div id="left" className="bg-gray-200 flex-1 min-h-0 min-w-0">
           <Table data={fileList} />
         </div>
+
         <div
           id="middle"
           className="bg-gray-600 flex flex-col flex-1 items-center justify-between p-4"
@@ -58,6 +60,10 @@ function App() {
                     aria-label="Filter projects"
                     placeholder="Renaming pattern..."
                   />
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block bg-gray-800 text-white text-sm px-2 py-1 rounded z-10 whitespace-nowrap">
+                    This is a tooltip! kjlkj jljkhljkhg lhkg kg <br />
+                    gjghjkgghghkjkghjghj gkjg kg hjkg hjkgkj gkjg kjg
+                  </div>
                 </form>
                 <label className="flex items-center space-x-2 text-white cursor-pointer">
                   <input
@@ -82,6 +88,7 @@ function App() {
             Rename
           </button>
         </div>
+
         <div id="right" className="bg-gray-200 flex-1 min-h-0 min-w-0">
           <Table data={fileList} />
         </div>
